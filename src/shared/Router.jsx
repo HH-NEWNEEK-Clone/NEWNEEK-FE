@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import React from 'react'
-import SignIn from "../pages/signPages/SignIn";
-import SignUp from "../pages/signPages/SignUp";
-import HomePage from "../pages/homePages/HomePage";
-import CategoryPage from "../pages/categoryPages/CategoryPage";
-import DetailPage from "../pages/detailPages/DetailPage"; 
-import SearchPage from "../pages/searchPages/SearchPage";
-import SearchContentesPage from "../pages/searchPages/SearchContentesPage";
+import SignIn from "../pages/SignPages/SignIn";
+import SignUp from "../pages/SignPages/SignUp";
+import HomePage from "../pages/HomePages/HomePage";
+import CategoryPage from "../pages/CategoryPages/CategoryPage";
+import DetailPage from "../pages/DetailPages/DetailPage"; 
+import SearchPage from "../pages/SearchPages/SearchPage";
+import SearchContentsPage from "../pages/SearchPages/SearchContentsPage";
 
 
 
@@ -19,10 +19,10 @@ function Router() {
                 <Route path="/signUp" element={<SignUp/>}/>
                 
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/categoryPage" element={<CategoryPage/>}/>
-                <Route path="/detailPage" element={<DetailPage/>}/>
-                <Route path="/searchPage" element={<SearchPage/>}/>
-                <Route path="/searchContentesPage" element={<SearchContentesPage/>}/>
+                <Route path="/categorypage" element={<CategoryPage/>}/>
+                <Route path="/detailpage" element={<DetailPage/>}/>
+                <Route path="/searchpage" element={<SearchPage/>}/>
+                <Route path="/searchcontentspage" element={<SearchContentsPage/>}/>
             </Routes>
         </BrowserRouter>
     )
