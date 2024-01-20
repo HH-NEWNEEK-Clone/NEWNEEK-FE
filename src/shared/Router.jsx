@@ -4,7 +4,7 @@ import React from 'react'
 import SignIn from "../pages/signPages/SignIn";
 import SignUp from "../pages/signPages/SignUp";
 import HomePage from "../pages/homePages/HomePage";
-import CategoryPage from "../pages/categoryPages/categoryPage";
+import CategoryPage from "../pages/categoryPages/CategoryPage";
 import DetailPage from "../pages/detailPages/DetailPage"; 
 import SearchPage from "../pages/searchPages/SearchPage";
 import SearchContentesPage from "../pages/searchPages/SearchContentesPage";
