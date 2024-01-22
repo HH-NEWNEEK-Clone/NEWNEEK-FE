@@ -1,16 +1,19 @@
 import './App.css';
-import Router from './shared/Router';
 import { QueryClient } from 'react-query';
 import { QueryClientProvider } from 'react-query';
+import Layout from '../src/components/Common/Layout'
+import GlobalStyle from './styles/GlobalStyle';
+
+
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
+      <GlobalStyle/>
+      <Layout/>
     </QueryClientProvider>
-
   );
 }
 
