@@ -1,8 +1,13 @@
 import React from 'react'
+import MainNavBar from '../../components/Common/MainNavBar'
+import BottomApp from '../../components/Common/BottomApp'
 
 function CategoryPage() {
     return (
-        <div>categoryPage</div>
+        <div>
+            <MainNavBar/>
+            <BottomApp/>
+        </div>
     )
 }
 

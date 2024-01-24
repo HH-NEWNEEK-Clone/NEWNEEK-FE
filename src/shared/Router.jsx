@@ -3,24 +3,25 @@ import React from 'react'
 import SignIn from "../pages/SignPages/SignIn";
 import SignUp from "../pages/SignPages/SignUp";
 import HomePage from "../pages/HomePages/HomePage";
-import CategoryPage from "../pages/CategoryPages/CategoryPage";
 import DetailPage from "../pages/DetailPages/DetailPage";
 import SearchPage from "../pages/SearchPages/SearchPage";
 import SearchContentsPage from "../pages/SearchPages/SearchContentsPage";
 
+import CategoryPage from "../pages/CategoryPages/CategoryPage";
 
 function Router() {
     return (
         <BrowserRouter>
                 <Routes>
-                    <Route path="/signIn" element={<SignIn />} />
-                    <Route path="/signUp" element={<SignUp />} />
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
 
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/categorypage" element={<CategoryPage />} />
                     <Route path="/detailpage" element={<DetailPage />} />
                     <Route path="/searchpage" element={<SearchPage />} />
                     <Route path="/searchcontentspage" element={<SearchContentsPage />} />
+
+                    <Route path="/tag/:id" element={<CategoryPage />} />
                 </Routes>
         </BrowserRouter>
     )
