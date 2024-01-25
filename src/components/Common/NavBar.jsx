@@ -18,10 +18,15 @@ function NavBar() {
 
                     <BoxSearch>
                         <BoxSearchIcon1>
-                            <img src="/img/search-icon.png" alt="banner" style={{ width: "14px" }} />
+                            <a href='/searchpage'>
+                            <img  src="/img/search-icon.png" alt="banner" style={{ width: "14px" }} >    
+                            </img>
+                            </a>
                         </BoxSearchIcon1>
                         <BoxSearchIcon2 >
+                          <a href='/signIn'>
                             🦔
+                            </a>
                         </BoxSearchIcon2>
                     </BoxSearch>
                 </NavFormInner>
