@@ -22,12 +22,12 @@ function BottomApp() {
     return (
         <div>
             {
-                curruntUrl !== "https://yeonz90s.site/" ?
+                curruntUrl !== "https://www.yeonz90s.site/" ?
                     <Margin /> : ""
             }
 
             {
-                curruntUrl === "https://yeonz90s.site/"?
+                curruntUrl === "https://www.yeonz90s.site/"?
                     <Form>
                         <FormTop>
                             <FormTopImg src="/img/banner-app.png" alt="app" />
@@ -41,7 +41,7 @@ function BottomApp() {
             }
 
             {
-                curruntUrl === "https://yeonz90s.site/" ?
+                curruntUrl === "https://www.yeonz90s.site/" ?
                     text.map((item, index) => {
                         return (
                             <FormBottom2 key={index}>
