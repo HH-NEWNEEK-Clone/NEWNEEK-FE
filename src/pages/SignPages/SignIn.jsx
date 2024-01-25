@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
+import api from '../../apis/api'
 
 function SignIn() {
     const navi = useNavigate()
@@ -19,7 +20,7 @@ function SignIn() {
     const submitButton = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api/sign-in`, {
+            const response = await api.post(`api/sign-in`, {
                 email: form.email,
                 password: form.password
             })
