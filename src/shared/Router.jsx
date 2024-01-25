@@ -5,7 +5,7 @@ import SignUp from "../pages/SignPages/SignUp";
 import HomePage from "../pages/HomePages/HomePage"
 import DetailPage from "../pages/DetailPages/DetailPage"
 import SearchPage from "../pages/SearchPages/SearchPage"
-import SearchContentsPage from "../pages/SearchPages/SearchContentsPage";
+import SearchContentsPage from "../pages/SearchPages/SearchContentsPage"
 import CategoryPage from "../pages/CategoryPages/CategoryPage"
 
 
