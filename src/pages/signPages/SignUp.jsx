@@ -120,8 +120,8 @@ function SignUp() {
             </Head>
             <Fieldset>
                 <TextField><TextField_input type='text' name='email' placeholder='이메일' value={form.email} onChange={handleFormChange}></TextField_input></TextField>
-                <TextField><TextField_input type='password' name='password' placeholder='비밀번호(8자이상)' value={form.password} onChange={handleFormChange}></TextField_input></TextField>
-                <TextField><TextField_input type='password' name='confirmpassword'  placeholder='비밀번호 확인(8자이상)' value={form.confirmpassword} onChange={handleFormChange}></TextField_input></TextField>
+                <TextField><TextField_input type='password' name='password' placeholder='비밀번호(6자이상)' value={form.password} onChange={handleFormChange}></TextField_input></TextField>
+                <TextField><TextField_input type='password' name='confirmpassword'  placeholder='비밀번호 확인(6자이상)' value={form.confirmpassword} onChange={handleFormChange}></TextField_input></TextField>
                 <TextField><TextField_input type='text' name="nickname" placeholder='닉네임' value={form.nickname} onChange={handleFormChange}></TextField_input></TextField>
             </Fieldset>
             <Fieldset>

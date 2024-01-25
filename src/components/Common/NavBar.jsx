@@ -2,15 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-function Nav() {
+function NavBar() {
+    const curruntUrl = window.location.href
+
     return (
         <div>
-            <img src="/img/banner1.png" alt="banner" />
+            {
+                curruntUrl === "http://localhost:3000/" ? <Img src="/img/banner1.png" alt="banner" /> : ""
+            }
             <NavForm>
                 <NavFormInner>
                     <BoxLogo>
-                        <img src="/img/logo.png" alt="logo"  />
+                        <a href ="/"><img src="/img/logo.png" alt="logo" /></a>
                     </BoxLogo>
+
                     <BoxSearch>
                         <BoxSearchIcon1>
                             <img src="/img/search-icon.png" alt="banner" style={{ width: "14px" }} />
@@ -25,37 +30,60 @@ function Nav() {
     )
 }
 
-export default Nav
+export default NavBar
+
+const Img = styled.img`
+    @media screen and (max-width: 980px){
+        content: url("/img/banner2.png");
+    }
+    
+`
 
 const NavForm = styled.div`
     background: #eae7de;
     border-bottom: 1px solid #051619;
     position: relative;
-    z-index: 4;
 `
 const NavFormInner = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 3rem 5% 2.5rem;
+    max-width: 1240px;
+    padding: 2.5rem 5% 2.3rem;
+    @media screen and (min-width: 1240px){
+        margin: 0px  auto;
+
+    }
+    @media screen and (max-width: 980px){
+        padding: 2.5rem 5% 2.9rem;
+        
+    }
 `
 
 const BoxLogo = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 226px;
+    width: 205px;
     box-sizing: border-box;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+
+    @media screen and (max-width: 980px){
+        width: 170px;
+        
+    }
 `
+
 const BoxSearch = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 980px){
+        display:none;
+    }
 `
 const BoxSearchIcon1 = styled.div`
     display: flex;
@@ -82,6 +110,4 @@ const BoxSearchIcon2 = styled.div`
     border-left: none;
     
     font-size: 25px;
-
-
 `

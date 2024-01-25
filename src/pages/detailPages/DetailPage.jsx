@@ -5,7 +5,7 @@ import axios from "axios";
 
 function DetailPage() {
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const [isProgressBarFixed, setIsProgressBarFixed] = useState(false);
+  const [IsProgressBarVisible, setIsProgressBarVisible] = useState(false);
   const [getData, setGetData] = useState([]);
   const { id } = useParams();
   
@@ -18,7 +18,13 @@ function DetailPage() {
 
       // 스크롤 진행 상태를 state에 업데이트
       setScrollPercentage(scrollPercentage);
-      setIsProgressBarFixed(currentScroll > 5000);
+
+      if(currentScroll>100){
+        setIsProgressBarVisible(true)
+      }else{
+        setIsProgressBarVisible(false)
+      }
+      
     };
 
     const getNews = async (newsCode) => {
@@ -29,10 +35,6 @@ function DetailPage() {
         const newsList = response.data.data;
         setGetData(newsList);
 
-        // newsList.map(news => {
-        //     // console.log(news.newsCode);
-        //     setGetData(news.newsCode)
-        // });
       } catch (error) {
         alert('error')
       }
@@ -45,7 +47,7 @@ function DetailPage() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [id]);
 
 //   useEffect(()=>{
 //       console.log(getData)
@@ -57,20 +59,16 @@ function DetailPage() {
         <header className="Post-head">
           <a className="post-head-runninghead">{getData.category}</a>
           <h2 className="post-head-headline">{getData.title}</h2>
-          <time className="post-head-date">{getData.date}</time>
-          <div
-            className={`progress-bar-container ${
-              isProgressBarFixed ? "fixed" : ""
-            }`}
-          >
-            <div
-              className="progress-bar"
-              style={{ width: `${scrollPercentage}%` }}
-            >
-              <h2>{getData.title}</h2>
+          <time className="post-head-date" >{getData.date}</time>
+        </header>
+
+        {IsProgressBarVisible && (
+        <div className={`progress-bar-container ${IsProgressBarVisible ? "fixed" : ""}`}>
+            <div className="progress-bar" style={{ width: `${scrollPercentage}%` }}>
+              <div className="pro-bar">{getData.title}</div>
             </div>
           </div>
-        </header>
+        )}
         <div className="post-container">
           <div className="post-featured">
             <img src={getData.image} alt="" />
@@ -157,7 +155,7 @@ function DetailPage() {
             됩니다.
           </p>
         </form>
-        <a className="home-banner">
+        {/* <a className="home-banner">
           <figure className="home-banner-image">
             <img className="home-banner-image" src="/img/banner-app1.png"></img>
           </figure>
@@ -167,9 +165,9 @@ function DetailPage() {
               <img className="cta-arr" src="/img/sub.png" />
             </div>
           </div>
-        </a>
+        </a> */}
       </div>
-      <aside className="footer-statics">
+      {/* <aside className="footer-statics">
         <p>
           <span className="mobile-block">
             오늘까지&nbsp;
@@ -179,7 +177,7 @@ function DetailPage() {
           <b>579,432</b>명이&nbsp; 구독했어요!
         </p>
         <img src="/img/sub1.png" />
-      </aside>
+      </aside> */}
     </>
   );
 }

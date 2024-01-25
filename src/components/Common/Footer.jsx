@@ -6,40 +6,40 @@ function Footer() {
         <FooterForm>
             <FooterFormTop>
                 <BoxLogo>
-                    <img src="/img/logo.png" alt="logo" />
+                    <A href='/'><img src="/img/logo.png" alt="logo" /></A>
                 </BoxLogo>
                 <BoxLink>
                     <BoxLinkInner1>
-                        뉴닉 커뮤니티
+                        <A href="">뉴닉 커뮤니티</A>
                         <br />
-                        인스타그램
+                        <A href="">인스타그램</A>
                         <br />
-                        네이버 블로그
+                        <A href="">네이버 블로그</A>
                         <br />
-                        X
+                        <A href="">X</A>
                     </BoxLinkInner1>
                     <BoxLinkInner2>
-                        모두와 함께, 뉴닉
+                        <A href="">모두와 함께, 뉴닉</A>
                         <br />
-                        물물교환
+                        <A href="">물물교환</A>
                         <br />
-                        여성의 날
+                        <A href="">여성의 날</A> 
                         <br />
-                        2020 총선
+                        <A href="">2020 총선</A> 
                     </BoxLinkInner2>
                     <BoxLinkInner3>
-                        서비스이용약관
+                        <A href="">서비스이용약관</A>
                         <br />
-                        개인정보처리방침
+                        <A href="">개인정보처리방침</A>
                         <br />
-                        제휴 문의
+                        <A href="">제휴 문의</A>
                         <br />
-                        고객센터
+                        <A href="">고객센터</A>
                     </BoxLinkInner3>
                 </BoxLink>
             </FooterFormTop>
             <FooterFormBottom>
-                ㈜뉴닉 / 대표: 김소연 / 사업자등록번호: 632-81-01159 / 대표전화: 02-6952-1807 / 통신판매번호: 2020-서울마포-2938 / 개인정보보호책임자: 김소연 / 담당자메일주소: whatsup@newneek.co
+                ㈜뉴닉 / 대표: 김소연 / 사업자등록번호: 632-81-01159 / 대표전화: 02-6952-1807 / 통신판매번호: 2020-서울마포-2938 / 개인정보보호책임자: 김소연 / 담당자메일주소: whAtsup@newneek.co
                 <br />
                 서울특별시 마포구 어울마당로 35, 5층 (04048)
                 <br />
@@ -53,6 +53,12 @@ function Footer() {
 }
 
 export default Footer
+
+const A = styled.a`
+    &:hover{
+        color: #ff6b00;
+    }
+`
 
 const FooterForm = styled.div`
     display: flex;

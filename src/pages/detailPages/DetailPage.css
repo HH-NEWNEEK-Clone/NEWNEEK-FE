@@ -34,26 +34,35 @@ html{
 .post-head-date {
     font-size: 1.125rem;
 }
-.progress-bar-container{
-    width: 100%;
-    position: fixed;
-    display: hidden;
-    border: solid 1px black;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    
-    font-weight: 700;
-    font-size: 20px;
-    color: #fff;
-    
-}
+
 .progress-bar{
     background: #ff6b00;
     overflow: hidden;
-    border: 1px solid black;
     height: 50px;
 }
+.pro-bar{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #051619;
+    top: 25%;
+}
+.progress-bar-container{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: hidden;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    background: white;
+    border-bottom: 1px solid black;
+}
+
 .post-container {
     max-width: 45.7142rem;
     margin: 0 auto;

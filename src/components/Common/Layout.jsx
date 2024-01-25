@@ -1,12 +1,12 @@
 import React from 'react'
-import Nav from './Nav'
+import NavBar from './NavBar'
 import Router from '../../shared/Router'
 import Footer from './Footer'
 
 function Layout() {
     return (
         <div>
-            <Nav />
+            <NavBar />
             <Router />
             <Footer />
         </div>

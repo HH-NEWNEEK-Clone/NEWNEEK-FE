@@ -10,6 +10,7 @@ import CategoryPage from "../pages/categoryPages/CategoryPage"
 
 
 
+
 function Router() {
     return (
         <BrowserRouter>
@@ -17,10 +18,10 @@ function Router() {
                     <Route path="/signIn" element={<SignIn />} />
                     <Route path="/signUp" element={<SignUp />} />
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/categorypage" element={<CategoryPage/>} />
                     <Route path="/detailpage/:id" element={<DetailPage />} />
                     <Route path="/searchpage" element={<SearchPage />} />
                     <Route path="/searchcontentspage/:text" element={<SearchContentsPage />} />
+                    <Route path="/tag/:id" element={<CategoryPage />} />
                 </Routes>
         </BrowserRouter>
     )
