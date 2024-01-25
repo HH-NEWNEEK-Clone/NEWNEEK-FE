@@ -47,7 +47,7 @@ function SignIn() {
                     <TextField_input type='text' placeholder='이메일' name='email' value={form.email} onChange={handlerSubmt}></TextField_input>
                 </TextField>
                 <TextField>
-                    <TextField_input type='text' placeholder='비밀번호' name='password' value={form.password} onChange={handlerSubmt}></TextField_input>
+                    <TextField_input type='password' placeholder='비밀번호' name='password' value={form.password} onChange={handlerSubmt}></TextField_input>
                 </TextField>
                 <Forget_div>
                     <Forget >비밀번호를 잊으셨나요?</Forget>
