@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
+import api from '../../apis/api';
 
 function SignUp() {
     const navi = useNavigate();
@@ -81,7 +82,7 @@ function SignUp() {
             alert('닉네임의 형식이 올바르지 않습니다');
         } else {
             try {
-                const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}//api/sign-up`, {
+                const response = await api.post('api/sign-up', {
                     email: form.email,
                     password: form.password,
                     nickname: form.nickname
