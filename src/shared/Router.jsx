@@ -18,9 +18,9 @@ function Router() {
                     <Route path="/signUp" element={<SignUp />} />
                     <Route path="/" element={<HomePage />} />
                     <Route path="/categorypage" element={<CategoryPage/>} />
-                    <Route path="/detailpage" element={<DetailPage />} />
+                    <Route path="/detailpage/:id" element={<DetailPage />} />
                     <Route path="/searchpage" element={<SearchPage />} />
-                    <Route path="/searchcontentspage" element={<SearchContentsPage />} />
+                    <Route path="/searchcontentspage/:text" element={<SearchContentsPage />} />
                 </Routes>
         </BrowserRouter>
     )

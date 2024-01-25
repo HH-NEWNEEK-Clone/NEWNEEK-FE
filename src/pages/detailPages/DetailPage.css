@@ -42,7 +42,7 @@ html{
     left: 0;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    
     font-weight: 700;
     font-size: 20px;
     color: #fff;
@@ -273,4 +273,15 @@ b{
 }
 .footer-statics img {
     width: 10%;
+}
+.search-close {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0.25rem;
+    top: 0;
+    z-index: 12121;
 }

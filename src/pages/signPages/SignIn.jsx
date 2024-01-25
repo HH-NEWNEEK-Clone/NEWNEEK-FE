@@ -1,9 +1,37 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import { useNavigate } from 'react-router-dom'
 
 function SignIn() {
+    const navi =useNavigate()
+    const[form,setForm]=useState({
+        email:'',
+        password:''
+    })
+
+    const handlerSubmt=(e)=>{
+        setForm({
+            ...form,
+            [e.target.name]:e.target.value
+        })
+    }
+    const submitButton = async(e)=>{
+        e.preventDefault();
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/sign-in`,{
+                email:form.email,
+                password:form.password
+            })
+            console.log(response.data.data['accessToken'])
+            localStorage.setItem('token',response.data.data['accessToken'])
+            alert('로그인 되었습니다')
+            navi('/')
+        } catch (error) {
+            alert('로그인이 되지 않았습니다',error)
+        }
+    }
     return (
         <>
         <Login>
@@ -17,18 +45,18 @@ function SignIn() {
         </SignGoogleButtons>
         <Login_divider/>
         <TextField>
-            <TextField_input type='text' placeholder='이메일'></TextField_input>
+            <TextField_input type='text' placeholder='이메일' name='email' value={form.email} onChange={handlerSubmt}></TextField_input>
         </TextField>
         <TextField>
-            <TextField_input type='text' placeholder='비밀번호'></TextField_input>
+            <TextField_input type='text' placeholder='비밀번호' name='password' value={form.password} onChange={handlerSubmt}></TextField_input>
         </TextField>
         <Forget_div>
             <Forget >비밀번호를 잊으셨나요?</Forget>
         </Forget_div>
         <Login_foot>
-            <Login_button>로그인</Login_button>
+            <Login_button onClick={submitButton}>로그인</Login_button>
             <Login_option>
-                <Login_option_link href='/signUp'>회원가입하기</Login_option_link>
+                <Login_option_link href='/signUp' >회원가입하기</Login_option_link>
             </Login_option>
         </Login_foot>
         </Login>

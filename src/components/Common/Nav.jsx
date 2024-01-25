@@ -9,7 +9,7 @@ function Nav() {
             <NavForm>
                 <NavFormInner>
                     <BoxLogo>
-                        <img src="/img/logo.png" alt="logo" />
+                        <img src="/img/logo.png" alt="logo"  />
                     </BoxLogo>
                     <BoxSearch>
                         <BoxSearchIcon1>
