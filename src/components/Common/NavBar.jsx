@@ -8,7 +8,7 @@ function NavBar() {
     return (
         <div>
             {
-                curruntUrl === "http://localhost:3000/" ? <Img src="/img/banner1.png" alt="banner" /> : ""
+                curruntUrl === "https://yeonz90s.site/" ? <Img src="/img/banner1.png" alt="banner" /> : ""
             }
             <NavForm>
                 <NavFormInner>
