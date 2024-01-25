@@ -19,7 +19,7 @@ function SignIn() {
     const submitButton = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/sign-in`, {
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api/sign-in`, {
                 email: form.email,
                 password: form.password
             })
