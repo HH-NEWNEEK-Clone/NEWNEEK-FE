@@ -1,0 +1,120 @@
+html {
+    height: 100%;
+    overflow-x: hidden;
+    color: #051619;
+    font-size: 14px;
+    font-family: "Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+    line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.search {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem 5%;
+    box-sizing: border-box;
+    
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 6;
+}
+.textfield {
+    margin: 1rem 0;
+    position: relative;
+}
+.search-close {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0.25rem;
+    top: 0;
+    z-index: 12121;
+}
+
+.search-close img{
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.textfield-input {
+    display: block;
+    width: 100%;
+    padding-left: 50px;
+    border: 1px solid #051619;
+    border-radius: 0;
+    box-sizing: border-box;
+    box-shadow: 0;
+    font: inherit;
+    color: #051619;
+    transition: all .2s;
+    outline: none;
+    box-shadow: none;
+}
+.search-option {
+    padding: 2rem 0 3rem;
+}
+.search-option .search-option-title {
+    margin: 1rem 0;
+    font-size: 1.25rem;
+}
+.search-option-title {
+    font-weight: 700;
+    color: #051619;
+
+}
+.search-option .search-option-item {
+    display: block;
+    padding: 0.5rem 0;
+    color: #051619;
+    text-decoration: none;
+}
+
+.bottombar {
+    display: none;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0.25rem 0 calc(env(safe-area-inset-bottom) + 0.25rem);
+    background: #fff;
+    border-top: 1px solid #051619;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 7;
+}
+
+@media (max-width: 1079px){
+    .bottombar {
+        display: flex;
+    }
+    }
+
+.bottombar a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: #606263;
+}
+
+.bottombar .emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray100);
+    overflow: hidden;
+    border-radius: 0;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+}
