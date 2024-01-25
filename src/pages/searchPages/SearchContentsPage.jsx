@@ -37,7 +37,7 @@ function SearchContentsPage() {
           </header>
           <div className="posts">
           {searchResult.map(news=>(
-          <a className="card" href="">
+          <a className="card" href={`/detailpage/${news.newsCode}`}>
           <div className="card-inner">
           <figure className="card-thumbnail"><img src={news.image} alt="" loading="lazy"/></figure>
           <div className="card-body"><h3 className="card-title">{news.title}</h3><time className="card-date">{news.date}</time>&nbsp;<i className="card-category">{news.category}</i></div></div></a>
