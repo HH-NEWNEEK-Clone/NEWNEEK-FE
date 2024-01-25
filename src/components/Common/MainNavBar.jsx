@@ -96,7 +96,7 @@ function MainNavBar() {
                 </MainNavInner>
             </MainNav>
             {
-            curruntUrl !== "https://yeonz90s.site/" ?
+            curruntUrl !== "https://www.yeonz90s.site/" ?
             <CategryTitle>
             {title()}
             </CategryTitle>
