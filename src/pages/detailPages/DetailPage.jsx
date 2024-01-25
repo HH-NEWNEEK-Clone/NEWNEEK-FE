@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "../detailPages/DetailPage.css";
+import "./DetailPage.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import api from "../../apis/api";
+import BottomApp from "../../components/Common/BottomApp"
+import styled from "styled-components";
 
 function DetailPage() {
+  const [hover, setHover] = useState(false)
+    const handleMouseOver = () => {
+        setHover(true)
+    }
+    const handleMouseOut = () => {
+        setHover(false)
+    }
+
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [IsProgressBarVisible, setIsProgressBarVisible] = useState(false);
   const [getData, setGetData] = useState([]);
   const { id } = useParams();
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight =
@@ -19,18 +29,18 @@ function DetailPage() {
       // 스크롤 진행 상태를 state에 업데이트
       setScrollPercentage(scrollPercentage);
 
-      if(currentScroll>100){
+      if (currentScroll > 100) {
         setIsProgressBarVisible(true)
-      }else{
+      } else {
         setIsProgressBarVisible(false)
       }
-      
+
     };
 
     const getNews = async (newsCode) => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/api/news/${newsCode}`
+        const response = await api.get(
+          `api/news/${newsCode}`
         );
         const newsList = response.data.data;
         setGetData(newsList);
@@ -49,9 +59,9 @@ function DetailPage() {
     };
   }, [id]);
 
-//   useEffect(()=>{
-//       console.log(getData)
-//   },[getData])
+  //   useEffect(()=>{
+  //       console.log(getData)
+  //   },[getData])
 
   return (
     <>
@@ -63,7 +73,7 @@ function DetailPage() {
         </header>
 
         {IsProgressBarVisible && (
-        <div className={`progress-bar-container ${IsProgressBarVisible ? "fixed" : ""}`}>
+          <div className={`progress-bar-container ${IsProgressBarVisible ? "fixed" : ""}`}>
             <div className="progress-bar" style={{ width: `${scrollPercentage}%` }}>
               <div className="pro-bar">{getData.title}</div>
             </div>
@@ -77,10 +87,10 @@ function DetailPage() {
           <div class="footnote">이미지: ⓒ뉴스1</div>
 
           <section className="post-hashtag">
-          {getData.hashTag?.map(ietm =>(
-            <a key={ietm.index} className="post-hashtag-item" href="/">
-              {ietm}
-            </a>))}
+            {getData.hashTag?.map(ietm => (
+              <a key={ietm.index} className="post-hashtag-item" href="/">
+                {ietm}
+              </a>))}
           </section>
 
           <footer className="post-foot">
@@ -155,31 +165,163 @@ function DetailPage() {
             됩니다.
           </p>
         </form>
-        {/* <a className="home-banner">
-          <figure className="home-banner-image">
-            <img className="home-banner-image" src="/img/banner-app1.png"></img>
-          </figure>
-          <div className="home-banner-text">
+        <Form>
+          <FormTop>
+            <FormTopImg src="/img/banner-app.png" alt="app" />
+          </FormTop>
+          <FormBottom>
             더 편하게 보고싶다면? 뉴닉 앱에서 만나요!
-            <div className="cta-arrow">
-              <img className="cta-arr" src="/img/sub.png" />
-            </div>
-          </div>
-        </a> */}
+            <Arrow />
+          </FormBottom>
+        </Form>
+        <FormBottom3
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                {
+                    hover ? (
+                        <>
+                            <FormBottom3Inner>
+                                <Inner>
+                                    {"뉴스레터 구독하기 ".repeat(30)}
+                                </Inner>
+                            </FormBottom3Inner>
+                        </>
+                    ) : (
+                        <>
+                            <FormBottom3Inner>
+                                <div>
+                                    오늘까지 <span style={{ fontWeight: 700 }}>588회</span> 뉴스레터를 발행했고 <span style={{ fontWeight: 700 }}>597,649명</span>이 구독했어요!
+                                </div>
+                            </FormBottom3Inner>
+                            <Arrow />
+                        </>
+                    )
+                }
+
+            </FormBottom3>
+        
       </div>
-      {/* <aside className="footer-statics">
-        <p>
-          <span className="mobile-block">
-            오늘까지&nbsp;
-            <b>588회 &nbsp;</b>
-            뉴스레터를 발행했고
-          </span>
-          <b>579,432</b>명이&nbsp; 구독했어요!
-        </p>
-        <img src="/img/sub1.png" />
-      </aside> */}
+      
     </>
   );
 }
 
 export default DetailPage;
+
+const Form = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 14rem 0rem 0rem 0rem;
+    padding-top: 82px;
+    border-top: 2px solid #051619;
+    position: relative;
+    cursor: pointer;
+    background: #ff6b00;
+    
+    
+`
+const FormTop = styled.div`
+    position: absolute;
+    bottom: 55px;
+    width: 280px;
+    &:hover::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url(/img/banner-app-over.png) 50% no-repeat;
+        background-size: contain;
+        opacity: 1;
+        transition: opacity 2s ease;
+    }
+`
+
+const FormTopImg = styled.img`
+    width: 100%;
+`
+const FormBottom = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 58px;
+    border-top: 1px solid black;
+    border-bottom: 2px solid black;
+    background-color: #fff;
+
+    font-size: 15px;
+    font-weight: 600;
+`
+
+const Arrow = styled.div`
+    position: relative;
+    margin-left: 10px;
+    border-top: .15rem solid #000;
+    width: 60px;
+    height: 0px;
+    &::after{
+        position: absolute;
+        left: 41px;
+        top: -9px;
+        content: '';
+        width: 15px; 
+        height: 15px;
+        border-top: .15rem solid #000;
+        border-right: .15rem solid #000;
+        transform: rotate(405deg);
+    }
+`
+
+const FormBottom3 = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 0px 5%;
+    height: 4.8rem;
+    box-sizing: border-box;
+
+    font-size: 1.38rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    
+    cursor: pointer;
+`
+const FormBottom3Inner = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+
+    width: 100%;
+    height: 100%;
+    &:hover{
+        animation: marquee 30s linear infinite; 
+        @keyframes marquee {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+    }
+`
+const Inner = styled.div`
+    margin: 0px 20px;
+`

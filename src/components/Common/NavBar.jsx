@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 function NavBar() {
     const curruntUrl = window.location.href
-
+    
     return (
         <div>
             {

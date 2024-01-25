@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import api from '../../apis/api'
 import { useQuery } from 'react-query'
 
 function MainNavBar() {
 
+    //--------------------현재 URL------------------------//
     const curruntUrl = window.location.href
 
+    //---------홈, 카테고리 데이터 받아오기 조건------------//
     const params = useParams()
     // console.log(params)
     
@@ -15,7 +17,6 @@ function MainNavBar() {
         if(Object.keys(params).length === 0){
             const response = await api.get('api/news')
             console.log(response.data)
-            // console.log(response.data.data.news)
             return response.data.data.news
         }
     }
@@ -24,8 +25,6 @@ function MainNavBar() {
     const getCategoryData = async () => {
         if(Object.keys(params).length !== 0 ){
             const response = await api.get(`api/tag/${params.id}`)
-            // console.log(response)
-            // console.log(response.data.data)
             return response.data.data
         }
     }
@@ -37,7 +36,7 @@ function MainNavBar() {
     }
 
 
-    //------------------------------------------------//
+    //----------------------더보기-------------------------//
     const [count, setCount] = useState(12)
 
     const addCount = () => {
@@ -45,6 +44,14 @@ function MainNavBar() {
         console.log(count)
     }
 
+    //----------------------더보기-------------------------//
+    const navigate = useNavigate();
+    const detailPage = (id) => {
+        navigate(`/detailpage/${id}`)
+    }
+
+
+    //------------------------title-----------------------//
     const title = () => {
         switch(params.id){
             case "politics":
@@ -102,7 +109,7 @@ function MainNavBar() {
                         dataState() &&
                         dataState().slice(0, count).map((item) => {
                             return (
-                                <BoxContents key={item.newsId}>
+                                <BoxContents key={item.newsId} onClick={()=>{detailPage(item.newsCode)}}>
                                     <Contents>
                                         <ContentsImg>
                                             <Img src={item.image} alt="image" style={{ objectFit: "cover" }} />
