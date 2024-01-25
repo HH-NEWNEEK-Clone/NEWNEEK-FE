@@ -24,7 +24,7 @@ function NavBar() {
                             </a>
                         </BoxSearchIcon1>
                         <BoxSearchIcon2 >
-                          <a href='/signIn'>
+                            <a href='/signIn'>
                             🦔
                             </a>
                         </BoxSearchIcon2>

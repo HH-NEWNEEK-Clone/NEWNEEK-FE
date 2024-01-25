@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import '../searchPages/SearchContentsPage.css'
+import './SearchContentsPage.css'
 function SearchContentsPage() {
   const {text}=useParams();
   const [searchResult,setSearchResult]=useState([]);
