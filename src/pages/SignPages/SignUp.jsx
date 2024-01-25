@@ -81,7 +81,7 @@ function SignUp() {
             alert('닉네임의 형식이 올바르지 않습니다');
         } else {
             try {
-                const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/sign-up`, {
+                const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api/sign-up`, {
                     email: form.email,
                     password: form.password,
                     nickname: form.nickname
