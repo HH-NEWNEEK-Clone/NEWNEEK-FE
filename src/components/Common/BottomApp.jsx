@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 function BottomApp() {
     const curruntUrl = window.location.href
+
+    const [hover, setHover] = useState(false)
+    const handleMouseOver = () => {
+        setHover(true)
+    }
+    const handleMouseOut = () => {
+        setHover(false)
+    }
+
     const text = [
         "우리가 시간이 없지, 세상이 안 궁금하냐! 뉴닉탄생기 ✨",
         "퀴어 프렌들리한 팀을 위한 뉴닉 레인보우 가이드 🏳️‍🌈",
@@ -10,24 +19,21 @@ function BottomApp() {
 
     ]
 
-
     return (
         <div>
             {
-            curruntUrl !== "http://localhost:3000/" ?
-                    <Margin/> : ""
+                curruntUrl !== "http://localhost:3000/" ?
+                    <Margin /> : ""
             }
 
             {
-                curruntUrl === "http://localhost:3000/" ?
+                curruntUrl === "http://localhost:3000/"?
                     <Form>
                         <FormTop>
                             <FormTopImg src="/img/banner-app.png" alt="app" />
                         </FormTop>
                         <FormBottom>
-                            <div>
-                                더 편하게 보고싶다면? 뉴닉 앱에서 만나요!
-                            </div>
+                            더 편하게 보고싶다면? 뉴닉 앱에서 만나요!
                             <Arrow />
                         </FormBottom>
                     </Form>
@@ -47,14 +53,34 @@ function BottomApp() {
                         )
                     }) : ""
             }
-            
 
-            <FormBottom2>
-                <div>
-                    오늘까지 <span style={{ fontWeight: 700 }}>588회</span> 뉴스레터를 발행했고 <span style={{ fontWeight: 700 }}>597,649명</span>이 구독했어요!
-                </div>
-                <Arrow />
-            </FormBottom2>
+
+            <FormBottom3
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                {
+                    hover ? (
+                        <>
+                            <FormBottom3Inner>
+                                <Inner>
+                                    {"뉴스레터 구독하기 ".repeat(30)}
+                                </Inner>
+                            </FormBottom3Inner>
+                        </>
+                    ) : (
+                        <>
+                            <FormBottom3Inner>
+                                <div>
+                                    오늘까지 <span style={{ fontWeight: 700 }}>588회</span> 뉴스레터를 발행했고 <span style={{ fontWeight: 700 }}>597,649명</span>이 구독했어요!
+                                </div>
+                            </FormBottom3Inner>
+                            <Arrow />
+                        </>
+                    )
+                }
+
+            </FormBottom3>
 
         </div>
     )
@@ -139,6 +165,53 @@ const FormBottom2 = styled.div`
     }
     cursor: pointer;
 `
+const FormBottom3 = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 0px 5%;
+    height: 4.8rem;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+
+    font-size: 1.38rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    
+    cursor: pointer;
+`
+const FormBottom3Inner = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+
+    width: 100%;
+    height: 100%;
+    &:hover{
+        animation: marquee 30s linear infinite; 
+        @keyframes marquee {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+    }
+`
+const Inner = styled.div`
+    margin: 0px 20px;
+`
+
+
 const Arrow = styled.div`
     position: relative;
     margin-left: 10px;
